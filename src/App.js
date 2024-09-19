@@ -8,6 +8,10 @@ import AboutUs from './Components/AboutUs';
 import ProductDetail from './Components/ProductDetails'; // Corrected: singular
 import Checkout from './Components/Checkout';
 import OrderConfirmation from './Components/OrderConfirmation';
+import FillLocation from './Components/FillLocation';
+import Payment from './Components/Payment';
+import SignIn from './Components/SignIn';
+import SignUp from './Components/SignUp';
 import './App.css';
 
 function App() {
@@ -34,7 +38,10 @@ function App() {
 
           {/* Route for the order confirmation page */}
           <Route path="/order-confirmation" element={<OrderConfirmation />} />
-
+          <Route path="/fill-location" element={<FillLocation />} />
+          <Route path ="/payment" element={<Payment/>}/>
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
         </Routes>
       </div>
     </Router>

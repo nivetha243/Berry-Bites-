@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
+import offer1 from '../assets/offer1.jpg'; 
+import offer2 from '../assets/offer2.jpg';
+import offer3 from '../assets/offer3.jpg';
+import offer4 from '../assets/offer4.jpg';
 import './OfferSlider.css'; // Optional, for specific slider styles
 
 const offers = [
-  { img: 'https://via.placeholder.com/600x300?text=Offer+1', title: 'Special Offer 1', description: 'Save 20% on all items' },
-  { img: 'https://via.placeholder.com/600x300?text=Offer+2', title: 'Special Offer 2', description: 'Buy one get one free' },
-  { img: 'https://via.placeholder.com/600x300?text=Offer+3', title: 'Special Offer 3', description: 'Free shipping on orders over $50' },
-  { img: 'https://via.placeholder.com/600x300?text=Offer+4', title: 'Special Offer 4', description: 'Free shipping on orders over $50' },
+  { img: offer1, title: 'Special Offer 1', description: 'Save 20% on all items' },
+  { img: offer2, title: 'Special Offer 2', description: 'Buy one get one free' },
+  { img: offer3, title: 'Special Offer 3', description: 'Free shipping on orders over $50' },
+  { img: offer4, title: 'Special Offer 4', description: 'Free shipping on orders over $50' },
 ];
 
 function OfferSlider() {
