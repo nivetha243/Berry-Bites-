@@ -13,35 +13,38 @@ import DotMarkers from '../assets/DotMarkers.png';
 import PaintSticks from '../assets/PaintSticks.png';
 import PaperRolls from '../assets/PaperRolls.png';
 import Pegs from '../assets/Pegs.png';
+import Ribbon from '../assets/Ribbon.png';
 import Ruler from '../assets/Ruler.png';
 import Stapler from '../assets/Stapler.png';
 import Straws from '../assets/Straws.png';
 import Twine from '../assets/Twine.png';
-import Ribbon from '../assets/Ribbon.png';
+
+// Define product list
 const products = [
   { img: Product1, name: 'Acrylic Paint', price: '$19.99' },
   { img: Product2, name: 'Adhesive Paper', price: '$29.99' },
   { img: Felt, name: 'Felt', price: '$39.99' },
   { img: Glue, name: 'Glue', price: '$55.90' },
   { img: ColoredPencils, name: 'Colored Pencils', price: '$22.99' },
-  { img: HolePunch, name: 'HolePunch', price: '$33.99' },
-  { img: GooglyEyes, name: 'GooglyEyes', price: '$44.99' },
+  { img: HolePunch, name: 'Hole Punch', price: '$33.99' },
+  { img: GooglyEyes, name: 'Googly Eyes', price: '$44.99' },
   { img: Markers, name: 'Markers', price: '$59.99' },
-  { img: DotMarkers, name: 'DotMarkers', price: '$59.99' },
-  { img: PaintSticks, name: 'PaintSticks', price: '$59.99' },
-  { img: PaperRolls, name: 'PaperRolls', price: '$59.99' },
-  { img: Pegs, name: 'Pegs', price: '$59.99' },
-  { img: Ribbon, name: 'Ribbo', price: '$59.99' },
+  { img: DotMarkers, name: 'Dot Markers', price: '$59.99' },
+  { img: PaintSticks, name: 'Paint Sticks', price: '$59.99' },
+  { img: PaperRolls, name: 'Paper Rolls', price: '$59.99' },
+  { img: Pegs, name: 'Wooden Pegs', price: '$59.99' },
+  { img: Ribbon, name: 'Ribbon', price: '$59.99' },
   { img: Ruler, name: 'Ruler', price: '$59.99' },
   { img: Stapler, name: 'Stapler', price: '$59.99' },
   { img: Straws, name: 'Straws', price: '$59.99' },
   { img: Twine, name: 'Twine', price: '$59.99' },
 ];
+
 function ProductList() {
   const navigate = useNavigate();
 
   const handleProductClick = (productName) => {
-    navigate(`/product/${productName}`);
+    navigate(`/product/${encodeURIComponent(productName)}`);
   };
 
   return (

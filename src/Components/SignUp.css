@@ -1,4 +1,5 @@
 /* SignUp.css */
+<<<<<<< HEAD
 
 .signin-container,
 .signup-container {
@@ -78,3 +79,104 @@ p a {
 p a:hover {
   text-decoration: underline;
 }
+=======
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+  /* Sign Up Container Styles */
+  .signup-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto 10px auto; /* Adjust top margin to create space below navbar */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .signup-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .error-text {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  /* Button Styles */
+  .button-group {
+    text-align: center; /* Center align buttons */
+    margin-top: 10px;
+  }
+  
+  .submit-button,
+  .otp-button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .submit-button {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .otp-button {
+    background-color: #6c757d;
+    color: white;
+  }
+  
+  .otp-button:hover {
+    background-color: #5a6268;
+  }
+  
+  /* Login Link Styles */
+  .login-link {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .login-link a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .login-link a:hover {
+    text-decoration: underline;
+  }
+  
+>>>>>>> ae6aa307484ccfd5fe8ca806e78e203832fcc1c2
