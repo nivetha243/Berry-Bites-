@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './SignIn.css';
@@ -14,19 +15,16 @@ const authenticateUser = async (email, password) => {
     });
 
     const data = await response.json();
-    console.log('Server response:', data); // Debugging log
 
-    if (response.ok) {
+    if (response.ok && data.token) {
       return data;
     } else {
-      throw new Error(data.message || 'Login failed');
+      throw new Error(data.message || 'Login failed. Please try again.');
     }
   } catch (error) {
-    console.error('Error during authentication:', error); // Debugging log
     throw error;
   }
 };
-
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -35,26 +33,25 @@ const SignIn = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  // Handle form submission
   const handleSignIn = async (e) => {
-    e.preventDefault(); // Prevent form from refreshing the page
-    setLoading(true); // Start loading
-    setError(''); // Reset error
+    e.preventDefault();
+    setLoading(true);
+    setError('');
 
     try {
       const userData = await authenticateUser(email, password);
 
-      // Store token and user details in localStorage
-      localStorage.setItem('authToken', userData.token);
-      localStorage.setItem('userDetails', JSON.stringify(userData.user));
-
-      // Redirect to the next page (e.g., checkout)
-      navigate('/checkout');
+      if (userData.token) {
+        localStorage.setItem('authToken', userData.token);
+        localStorage.setItem('userDetails', JSON.stringify(userData.user));
+        navigate('/all');
+      } else {
+        setError('Authentication failed. Please try again.');
+      }
     } catch (err) {
-      // Show an error message if authentication fails
-      setError(err.message);
+      setError(err.message || 'An error occurred during sign-in.');
     } finally {
-      setLoading(false); // Stop loading
+      setLoading(false);
     }
   };
 
@@ -87,15 +84,10 @@ const SignIn = () => {
         </div>
 
         {error && <p className="error-message">{error}</p>}
-        {loading ? (
-          <button type="button" className="signin-button" disabled>
-            Loading...
-          </button>
-        ) : (
-          <button type="submit" className="signin-button">
-            Sign In
-          </button>
-        )}
+
+        <button type="submit" className="signin-button" disabled={loading}>
+          {loading ? 'Loading...' : 'Sign In'}
+        </button>
 
         <p>
           Don't have an account? <Link to="/signup">Sign Up</Link>
@@ -106,3 +98,5 @@ const SignIn = () => {
 };
 
 export default SignIn;
+
+

@@ -41,43 +41,53 @@ const Item = require('../models/Item');
 // @desc Get all items
 // @route GET /api/items
 // @access Public
-const getItems = async (req, res) => {
+
+// Place a new order
+const placeOrder = async (req, res) => {
   try {
-    const items = await Item.find(); // Fetch all items
-    res.status(200).json(items); // Return the items in the response
-  } catch (error) {
-    res.status(500).json({ message: 'Server Error', error: error.message });
-  }
-};
+    console.log('Request Body:', req.body); // Log the request body
 
-// @desc Add new item
-// @route POST /api/items
-// @access Public
-const addItem = async (req, res) => {
-  const { name, description, price } = req.body;
-
-  // Validate request data
-  if (!name || !price) {
-    return res.status(400).json({ message: 'Name and price are required' });
-  }
-
-  try {
-    const newItem = new Item({
+    const {
+      userId,
       name,
-      description: description || 'No description provided', // Optional field
-      price,
+      mobileNumber,
+      city,
+      area,
+      nearbyShop,
+      quantity,
+      paymentMethod,
+      cardDetails,
+      totalPrice
+    } = req.body;
+
+    // Ensure required fields are present
+    if (!userId || !city || !area) {
+      return res.status(400).json({ message: 'Required fields are missing.' });
+    }
+
+    // Create a new order
+    const newOrder = new Order({
+      user: userId,  // userId should match the user
+      name,
+      mobileNumber,
+      deliveryAddress: { city, area, nearbyShop },
+      quantity,
+      paymentMethod,
+      cardDetails: paymentMethod === 'online-payment' ? cardDetails : null,
+      totalPrice
     });
 
-    const savedItem = await newItem.save(); // Save the item to the database
-
-    res.status(201).json(savedItem); // Respond with the newly created item
+    // Save the order
+    const savedOrder = await newOrder.save();
+    res.status(201).json({ message: 'Order placed successfully!', order: savedOrder });
   } catch (error) {
-    res.status(500).json({ message: 'Error saving item', error: error.message });
+    console.error('Error placing order:', error); // Log the error
+    res.status(500).json({ message: 'Error placing order', error: error.message });
   }
 };
 
-module.exports = {
-  getItems,
-  addItem,
-};
 
+// Export the controller function
+module.exports = {
+  placeOrder
+};

@@ -1,14 +1,15 @@
-// FillLocation.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './FillLocation.css';
+import './FillLocation.css'; // Make sure to include the CSS file
 
 const FillLocation = () => {
-  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    deliveryLocation: '',
-    mobileNumber: ''
+    city: '',
+    area: '',
+    nearbyShop: ''
   });
+
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -17,39 +18,50 @@ const FillLocation = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Location details:', formData);
-    navigate('/checkout'); // Navigate back to checkout or a different page
+    // Save location details to local storage
+    localStorage.setItem('deliveryLocation', JSON.stringify(formData));
+    // Navigate back to checkout
+    navigate('/checkout');
   };
 
   return (
-    <div className="fill-location">
-      <h1>Fill Delivery Location</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="fill-location-container">
+      <h1>Enter Delivery Address</h1>
+      <form onSubmit={handleSubmit} className="form-container">
         <div className="form-group">
-          <label>Delivery Location:</label>
+          <label>City:</label>
           <input
             type="text"
-            name="deliveryLocation"
-            value={formData.deliveryLocation}
+            name="city"
+            value={formData.city}
             onChange={handleInputChange}
             required
           />
         </div>
 
         <div className="form-group">
-          <label>Mobile Number:</label>
+          <label>Area:</label>
           <input
             type="text"
-            name="mobileNumber"
-            value={formData.mobileNumber}
+            name="area"
+            value={formData.area}
             onChange={handleInputChange}
             required
           />
         </div>
 
-        <button type="submit" className="submit-btn">
-          Save Location
-        </button>
+        <div className="form-group">
+          <label>Nearby Shop:</label>
+          <input
+            type="text"
+            name="nearbyShop"
+            value={formData.nearbyShop}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+
+        <button type="submit" className="submit-btn">Save and Return</button>
       </form>
     </div>
   );

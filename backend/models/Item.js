@@ -1,49 +1,27 @@
-// const mongoose = require('mongoose');
-
-// const itemSchema = new mongoose.Schema({
-//   name: {
-//     type: String,
-//     required: true,
-//   },
-//   price: {
-//     type: Number,
-//     required: true,
-//   },
-//   description: {
-//     type: String,
-//     required: true,
-//   },
-//   stock: {
-//     type: Number,
-//     required: true,
-//     default: 0,
-//   },
-// });
-
-// module.exports = mongoose.model('Item', itemSchema);
-// models/Item.js
 
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-// Define the schema for an Item
-const itemSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  price: {
-    type: Number,
-    required: true,
-  },
-  description: {
-    type: String,
-    default: '',
-  },
-}, {
-  timestamps: true, // Automatically create 'createdAt' and 'updatedAt' fields
-});
+const itemSchema = new Schema({
+    name: { type: String, required: true },
+    mobileNumber: { type: String, required: true },
+    quantity: { type: Number, required: true },
+    totalPrice: { type: Number, required: true },
+    paymentMethod: { type: String, required: true }, // online-payment or cash-on-delivery
+    cardDetails: { type: String, required: function() { return this.paymentMethod === 'online-payment'; } },
+    deliveryAddress: {
+      city: { type: String, required: true },
+      area: { type: String, required: true },
+      nearbyShop: { type: String }
+    },
+    user: { type: Schema.Types.ObjectId, ref: 'User', required: true }, // Reference to the user
+    datePlaced: { type: Date, default: Date.now }
+  });
+  
+// module.exports = mongoose.model('Order', orderSchema);
 
-// Create the Item model based on the schema
+// module.exports = mongoose.model('order', orderSchema);
+// module.exports = order;
 const Item = mongoose.model('Item', itemSchema);
 
 module.exports = Item;
