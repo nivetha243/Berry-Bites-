@@ -15,8 +15,8 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #333;
-  color: #fff;
+  background-color: #151515;
+  color: #e8dff5;
 }
 
 .navbar .nav-left {
@@ -26,10 +26,11 @@ header {
 
 .navbar .logo img {
   height: 40px;
+  width: 40px;
 }
 
 .navbar #delivery-link {
-  color: #fff;
+  color: #e8dff5;
   text-decoration: none;
   margin-left: 20px;
   font-size: 14px;
@@ -38,7 +39,7 @@ header {
 .search-container {
   display: flex;
   align-items: center;
-  background-color: #444;
+  background-color: #ffe1e9;
   border-radius: 20px;
   padding: 5px 10px;
   max-width: 400px;
@@ -56,16 +57,16 @@ header {
 
 .search-container button {
   border: none;
-  background-color: #555;
+  background-color: #ffffff;
   border-radius: 20px;
   padding: 5px 10px;
   margin-left: 5px;
   cursor: pointer;
-  color: #fff;
+  color: #141414;
 }
 
 .search-container button:hover {
-  background-color: #666;
+  background-color: #f9c3d1;
 }
 
 .nav-right {
@@ -74,29 +75,29 @@ header {
 }
 
 .nav-btn {
-  color: #fff;
+  color: #141414;
   text-decoration: none;
   padding: 8px 15px;
   border-radius: 20px;
   margin-left: 10px;
   font-size: 14px;
-  background-color: #555;
+  background-color: #ffffff;
   transition: background-color 0.3s;
 }
 
 .nav-btn:hover {
-  background-color: #666;
+  background-color: #f9c3d1;
 }
 
 .second-navbar {
   display: flex;
   justify-content: center;
-  background-color: #eee;
+  background-color: #dfccf1;
   padding: 10px 0;
 }
 
 .second-navbar .nav-item {
-  color: #333;
+  color: #4a0909;
   text-decoration: none;
   padding: 10px 20px;
   font-size: 14px;
@@ -110,7 +111,7 @@ header {
 }
 
 .second-navbar .nav-item:hover {
-  color: #555;
+  color: #9e9696;
 }
 
 @media (max-width: 768px) {

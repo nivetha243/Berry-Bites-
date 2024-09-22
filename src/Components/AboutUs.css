@@ -1,11 +1,12 @@
 .about-us {
     text-align: center;
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: #e8dff5;
   }
   
   .about-us h1 {
     margin: 0 0 10px;
+    color: #067436
   }
   
   .about-us p {

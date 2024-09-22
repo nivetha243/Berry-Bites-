@@ -10,7 +10,7 @@ function Footer() {
         <a href="#privacy">Privacy Policy</a>
         <a href="#terms">Terms of Service</a>
       </div>
-      <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+      <p>       </p>
     </footer>
   );
 }

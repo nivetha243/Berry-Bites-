@@ -7,11 +7,11 @@ const Cart = () => {
   const { cartItems, updateQuantity, removeFromCart } = useCart();
 
   const getItemTotalPrice = (price, quantity) => {
-    return (parseFloat(price.replace('$', '')) * quantity).toFixed(2);
+    return (parseFloat(price.replace('₹', '')) * quantity).toFixed(2);
   };
 
   const getTotalPrice = () => {
-    return cartItems.reduce((total, item) => total + (parseFloat(item.price.replace('$', '')) * item.quantity), 0).toFixed(2);
+    return cartItems.reduce((total, item) => total + (parseFloat(item.price.replace('₹', '')) * item.quantity), 0).toFixed(2);
   };
 
   return (
@@ -23,7 +23,7 @@ const Cart = () => {
             <img src={item.img} alt={item.title} className="cart-item-image" />
             <div className="item-details">
               <h2 className="item-title">{item.title}</h2>
-              <p className="item-price">${getItemTotalPrice(item.price, item.quantity)}</p>
+              <p className="item-price">₹{getItemTotalPrice(item.price, item.quantity)}</p>
               <div className="quantity-controls">
                 <button 
                   className="quantity-button" 
@@ -46,7 +46,7 @@ const Cart = () => {
         ))}
       </div>
       <div className="cart-summary">
-        <h2 className="summary-total">Total: ${getTotalPrice()}</h2>
+        <h2 className="summary-total">Total: ₹{getTotalPrice()}</h2>
         <button className="checkout-button">Proceed to Checkout</button>
       </div>
     </div>

@@ -33,7 +33,7 @@
 /* Add to Cart button */
 .btn-add-to-cart {
   padding: 10px 20px;
-  background-color: #ffcc00; /* Yellow color for Add to Cart */
+  background-color: #FFDAB9; /* Yellow color for Add to Cart */
   color: #333; /* Dark text for contrast */
   border: none;
   cursor: pointer;
@@ -44,14 +44,14 @@
 }
 
 .btn-add-to-cart:hover {
-  background-color: #e6b800; /* Darker yellow on hover */
+  background-color: #faaf6c; /* Darker yellow on hover */
 }
 
 /* Buy Now button */
 .btn-buy-now {
   padding: 10px 20px;
-  background-color: #e60023; /* Red color for Buy Now */
-  color: white;
+  background-color: #f57185; /* Red color for Buy Now */
+  color: #333;
   border: none;
   cursor: pointer;
   font-size: 1em;
@@ -60,7 +60,7 @@
 }
 
 .btn-buy-now:hover {
-  background-color: #c7001b; /* Darker red on hover */
+  background-color: #bf3b4c; /* Darker red on hover */
 }
 
 /* Responsive full-width buttons on mobile devices */
